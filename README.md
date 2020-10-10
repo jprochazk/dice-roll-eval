@@ -2,7 +2,7 @@
 
 Built for [supi-core](https://github.com/Supinic/supi-core).
 
-JS module used for evaluating standard dice notation expressions. The module can actually evaluate simple mathematical expressions, with an additional operator, "d". This operator takes the form `AdX` or `dX`, where `A` is the number of rolls of `X`-sided die.
+JS module used for evaluating standard dice notation expressions. The module can actually evaluate simple mathematical expressions, consisting of integers and operators `+`, `-`, `*`, `/`, as well as sub-expressions enclosed in parentheses. To (mostly) comply with standard dice notation, an additional operator is implemented: `d`. This operator takes the form `AdX` or `dX`, where `A` is the number of rolls of `X`-sided die.
 
 ### Expression examples
 
