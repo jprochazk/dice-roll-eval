@@ -1,7 +1,8 @@
 
 function rollDice(times, sides, limit, rng) {
     let sum = 0;
-    while (limit-- > 0 && times-- > 0) {
+    while (times-- > 0) {
+        if (limit-- === 0) throw new Error(`Too many rolls.`);
         sum += rng(1, sides);
     }
     return sum;
