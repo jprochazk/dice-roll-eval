@@ -79,7 +79,7 @@ function parse_terminal(tokenList) {
         tokenList.advance();
         const expr = parse_binary0(tokenList);
         if (tokenList.current != ")") {
-            throw new Error(`Expected a matching ")" after "${tokenList.previous}"`);
+            throw new Error(`Expected a matching ")" after "${tokenList.previous}".`);
         }
         tokenList.advance();
         return expr;
@@ -90,9 +90,9 @@ function parse_terminal(tokenList) {
     }
     
     if (tokenList.current === undefined) {
-        throw new Error(`Expected token after "${tokenList.previous}", got none`);
+        throw new Error(`Expected token after "${tokenList.previous}", got none.`);
     } else {
-        throw new Error(`Unexpected token "${tokenList.current}" after "${tokenList.previous}"`);
+        throw new Error(`Unexpected token "${tokenList.current}" after "${tokenList.previous}".`);
     }
 }
 

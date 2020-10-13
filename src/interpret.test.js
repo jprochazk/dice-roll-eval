@@ -6,11 +6,14 @@ const fakeRNG = (min, max) => Math.floor((max + min) / 2);
 
 describe.each([
 
-    // valid cases
+    // VALID CASES
     [[5, 10, "+"], 15],
     [[1, 5, "d"], fakeRNG(1, 5)],
     [[1, 5, "d", 5, "+"], fakeRNG(6, 10)],
-    [[Infinity, 5, "d"], new Error("Too many rolls.")]
+
+    // INVALID CASES
+    [[Infinity, 5, "d"], new Error("Too many rolls.")],
+    [[Infinity, 10, "d", 5, "+"], new Error("Too many rolls.")]
 
 ])("interpret(%p)", (AST, expected) => {
 

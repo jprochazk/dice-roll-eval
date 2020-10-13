@@ -8,17 +8,16 @@ function rollDice(times, sides, limit, rng) {
     return sum;
 }
 
-function defaultRandom(min, max) {
-    return Math.random() * (max - min) + min;
-}
-
 /**
  * This is a stack-based interpreter, which interprets reverse polish notation (https://en.wikipedia.org/wiki/Reverse_Polish_notation)
  * similarly to a bytecode virtual machine.
  * 
  * @param {string[]} insts Instructions in reverse polish notation
+ * @param {number} limit max number of rolls in a single evaluation
+ * @param {Function} rng Function which takes two numbers, and returns a number.
+ *                       It should be random, but that's entirely up to the user.
  */
-function interpret(insts, limit = 10, rng = defaultRandom) {
+function interpret(insts, limit, rng) {
     let stack = [];
     let ip = 0;
     while (ip < insts.length) {

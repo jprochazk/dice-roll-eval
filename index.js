@@ -2,6 +2,11 @@ const tokenize = require("./src/tokenize");
 const parse = require("./src/parse");
 const interpret = require("./src/interpret");
 
+/* istanbul ignore next */
+function defaultRNG(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
 /**
  * Evaluates an expression in standard dice notation form
  * 
@@ -12,7 +17,7 @@ const interpret = require("./src/interpret");
  * @returns {number}
  * @throws {Error}
  */
-function evaluate(input, limit, rng) {
+function evaluate(input, limit = 10, rng = defaultRNG) {
     const tokens = tokenize(input);
     const AST = parse(tokens);
     
