@@ -21,6 +21,7 @@ describe.each([
         new Error(`Expected token after "(", got none.`),
     ],
     ["5d-", new Error(`Unexpected token "-" after "d".`)],
+    ["6e5", new Error(`Unexpected token "e" at column 2.`)],
     ["", new Error(`No tokens to parse.`)],
     ["3d10)", new Error(`Could not parse entire token list.`)],
     ["5dd6", new Error(`Unexpected token "d" after "d".`)],
