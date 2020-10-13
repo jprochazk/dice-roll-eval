@@ -2,7 +2,7 @@
   "name": "dice-roll-eval",
   "author": "Jan Procházka",
   "description": "Evaluates standard dice notation expressions",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "engines": {
     "node": ">= 12.0"
