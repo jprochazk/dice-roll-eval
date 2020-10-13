@@ -1,21 +1,21 @@
 {
-  "name": "dice-roll-eval",
-  "author": "Jan Procházka",
-  "description": "Evaluates standard dice notation expressions",
-  "version": "1.0.1",
-  "main": "index.js",
-  "engines": {
-    "node": ">= 12.0"
-  },
-  "scripts": {
-    "test": "jest --coverage",
-    "test:ncov": "jest"
-  },
-  "devDependencies": {
-    "jest": "^26.5.2"
-  },
-  "files": [
-    "index.js",
-    "./src/**/*"
-  ]
+    "name": "dice-roll-eval",
+    "author": "Jan Procházka",
+    "description": "Evaluates standard dice notation expressions",
+    "version": "1.0.1",
+    "main": "index.js",
+    "engines": {
+        "node": ">= 12.0"
+    },
+    "scripts": {
+        "test": "jest --coverage",
+        "test:ncov": "jest"
+    },
+    "devDependencies": {
+        "jest": "^26.5.2"
+    },
+    "files": [
+        "index.js",
+        "./src/**/*"
+    ]
 }

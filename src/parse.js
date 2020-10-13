@@ -10,23 +10,22 @@ class TokenList {
     /**
      * @type {(string|undefined)}
      */
-    get current() { 
+    get current() {
         return this.tokens[this.pointer];
     }
-    
+
     /**
      * @type {(string|undefined)}
      */
     get previous() {
         return this.tokens[this.pointer - 1];
     }
-    
+
     advance() {
         this.pointer += 1;
         return this.previous;
     }
 }
-
 
 function parse_binary0(tokenList) {
     let left = parse_binary1(tokenList);
@@ -79,31 +78,37 @@ function parse_terminal(tokenList) {
         tokenList.advance();
         const expr = parse_binary0(tokenList);
         if (tokenList.current != ")") {
-            throw new Error(`Expected a matching ")" after "${tokenList.previous}".`);
+            throw new Error(
+                `Expected a matching ")" after "${tokenList.previous}".`
+            );
         }
         tokenList.advance();
         return expr;
     }
-    
+
     if (!Number.isNaN(Number(tokenList.current))) {
         return [Number(tokenList.advance())];
     }
-    
+
     if (tokenList.current === undefined) {
-        throw new Error(`Expected token after "${tokenList.previous}", got none.`);
+        throw new Error(
+            `Expected token after "${tokenList.previous}", got none.`
+        );
     } else {
-        throw new Error(`Unexpected token "${tokenList.current}" after "${tokenList.previous}".`);
+        throw new Error(
+            `Unexpected token "${tokenList.current}" after "${tokenList.previous}".`
+        );
     }
 }
 
 /**
  * Recursive descent parser
- * 
+ *
  * @param {string[]} tokens
  */
 function parse(tokens) {
     if (tokens.length === 0) {
-        throw new Error(`No tokens to parse.`)
+        throw new Error(`No tokens to parse.`);
     }
     const list = new TokenList(tokens);
     const insts = parse_binary0(list);

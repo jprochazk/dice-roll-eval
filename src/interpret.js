@@ -1,4 +1,3 @@
-
 function rollDice(times, sides, limit, rng) {
     if (times >= limit) throw new Error(`Too many rolls.`);
     let sum = 0;
@@ -11,7 +10,7 @@ function rollDice(times, sides, limit, rng) {
 /**
  * This is a stack-based interpreter, which interprets reverse polish notation (https://en.wikipedia.org/wiki/Reverse_Polish_notation)
  * similarly to a bytecode virtual machine.
- * 
+ *
  * @param {string[]} insts Instructions in reverse polish notation
  * @param {number} limit max number of rolls in a single evaluation
  * @param {Function} rng Function which takes two numbers, and returns a number.
