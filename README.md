@@ -18,9 +18,26 @@ Expressions are passed as plain strings to the module, which returns a number. T
 ```js
 const evaluate = require("dice-roll-eval");
 
-evaluate("5d6 + 10");
-evaluate("d10");
-evaluate("(10*10)d10");
+const result = evaluate("5d6 + 10");
+// ...
+```
+
+`evaluate` also takes two optional parameters, `limit` and `rng`. 
+
+`limit`: A dice roll like `5d6` will roll a 6-sided die 5 times. These rolls have to be executed in sequence, and in this library, that is done inside of a while loop. This stalls the event loop. To ensure that a user can't do something like `(1/0)d6` (i.e. roll a D6 Infinity times), you can set the maximum number of sequential rolls. The default is 10.
+
+`rng`: The random number generation function, which must have the following signature:
+
+```js
+(min: number, max: number) => number;
+```
+
+The `min` and `max` numbers specify the range in which values should be generated, e.g. the call `YOUR_RNG_FUNCTION(10, 2000)` should generate numbers within the range <10; 2000>. This parameter exists so that you can provide your own RNG implementation, such as a [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_Twister). The default implementation is:
+
+```js
+function defaultRNG(min, max) {
+    return Math.random() * (max - min) + min;
+}
 ```
 
 ### Tests
@@ -28,7 +45,7 @@ evaluate("(10*10)d10");
 Tests are built with [Jest](https://jestjs.io/).
 
 ```
-$ npm test
+$ yarn test
 ```
 
 ### Notes
