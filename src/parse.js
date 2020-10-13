@@ -29,7 +29,7 @@ class TokenList {
 
 function parse_binary0(tokenList) {
     let left = parse_binary1(tokenList);
-    while (["+", "-"].includes(tokenList.current)) {
+    if (["+", "-"].includes(tokenList.current)) {
         const op = tokenList.advance();
         const right = parse_binary1(tokenList);
         left = [...left, ...right, op];
@@ -39,7 +39,7 @@ function parse_binary0(tokenList) {
 
 function parse_binary1(tokenList) {
     let left = parse_unary(tokenList);
-    while (["*", "/"].includes(tokenList.current)) {
+    if (["*", "/"].includes(tokenList.current)) {
         const op = tokenList.advance();
         const right = parse_unary(tokenList);
         left = [...left, ...right, op];
