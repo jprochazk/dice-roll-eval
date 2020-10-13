@@ -1,5 +1,9 @@
 # dice-roll-eval
 
+<p align="center">
+[![Build Status](https://travis-ci.org/jprochazk/dice-roll-eval.svg?branch=master)](https://travis-ci.org/jprochazk/dice-roll-eval)
+</p>
+
 JS module used for evaluating standard dice notation expressions. The module can actually evaluate simple mathematical expressions, consisting of integers and operators `+`, `-`, `*`, `/`, as well as sub-expressions enclosed in parentheses. To (mostly) comply with standard dice notation, an additional operator is implemented: `d`. This operator takes the form `AdX` or `dX`, where `A` is the number of rolls of `X`-sided die.
 
 ### Expression examples
@@ -32,13 +36,7 @@ const result = evaluate("5d6 + 10");
 (min: number, max: number) => number;
 ```
 
-The `min` and `max` numbers specify the range in which values should be generated, e.g. the call `YOUR_RNG_FUNCTION(10, 2000)` should generate numbers within the range <10; 2000>. This parameter exists so that you can provide your own RNG implementation, such as a [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_Twister). The default implementation is:
-
-```js
-function defaultRNG(min, max) {
-    return Math.random() * (max - min) + min;
-}
-```
+The `min` and `max` numbers specify the range in which values should be generated, e.g. the call `YOUR_RNG_FUNCTION(10, 2000)` should generate a number within the range <10; 2000>. This parameter exists so that you can provide your own RNG implementation, such as a [Mersenne Twister](https://en.wikipedia.org/wiki/Mersenne_Twister). The default implementation uses `Math.random` and can be found [here](https://github.com/jprochazk/dice-roll-eval/blob/master/index.js#L5).
 
 ### Tests
 
@@ -47,6 +45,8 @@ Tests are built with [Jest](https://jestjs.io/).
 ```
 $ yarn test
 ```
+
+To report test coverage, execute `yarn test:coverage`.
 
 ### Notes
 
