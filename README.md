@@ -1,8 +1,12 @@
 # dice-roll-eval
 
 <p align="center">
-[![Build Status](https://travis-ci.org/jprochazk/dice-roll-eval.svg?branch=master)](https://travis-ci.org/jprochazk/dice-roll-eval)
-[![Coverage Status](https://coveralls.io/repos/github/jprochazk/dice-roll-eval/badge.svg?branch=master)](https://coveralls.io/github/jprochazk/dice-roll-eval?branch=master)
+    <a href='https://travis-ci.com/jprochazk/dice-roll-eval'>
+        <img src='https://travis-ci.org/jprochazk/dice-roll-eval.svg?branch=master' alt='Build Status' />
+    </a>
+    <a href='https://coveralls.io/github/jprochazk/dice-roll-eval?branch=master'>
+        <img src='https://coveralls.io/repos/github/jprochazk/dice-roll-eval/badge.svg?branch=master' alt='Coverage Status' />
+    </a>
 </p>
 
 JS module used for evaluating standard dice notation expressions. The module can actually evaluate simple mathematical expressions, consisting of integers and operators `+`, `-`, `*`, `/`, as well as sub-expressions enclosed in parentheses. To (mostly) comply with standard dice notation, an additional operator is implemented: `d`. This operator takes the form `AdX` or `dX`, where `A` is the number of rolls of `X`-sided die.
