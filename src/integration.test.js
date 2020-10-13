@@ -39,7 +39,7 @@ describe.each([
     }
 });
 
-describe("non-deterministic evaluate(%p)", () => {
+describe("default RNG evaluate(%p)", () => {
     globalThis.Math.random = () => 1;
 
     it(`returns 5`, () => {

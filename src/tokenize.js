@@ -10,6 +10,8 @@ function tokenize(str) {
     // lower-case and no whitespace
     str = str.toLowerCase().replace(/\s/g, "");
 
+    // we only have a few valid tokens, so we can immediately recognize bad tokens through exclusion
+
     // try to find bad tokens by matching anything that is not in the accepted token set
     // accepted tokens: digits [\d], operators [\*, \+, \-, \/, d], parentheses [\(\)]
     const unrecognized = str.match(/[^d\+\-\*\/\d\(\)]+/);
