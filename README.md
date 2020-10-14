@@ -51,8 +51,6 @@ Tests are built with [Jest](https://jestjs.io/).
 $ yarn test
 ```
 
-To report test coverage, execute `yarn test:coverage`.
-
 ### Notes
 
 Built for [supi-core](https://github.com/Supinic/supi-core).
